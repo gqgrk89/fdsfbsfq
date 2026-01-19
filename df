@@ -102,7 +102,7 @@ pcall(function()
     })
 end)
 
--- ************************ 后续核心脚本逻辑（原脚本完整保留，仅补充已定义的LocalPlayer） ************************
+-- ************************ 后续核心脚本逻辑 ************************
 local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
 local Camera = Workspace.CurrentCamera
 
@@ -140,77 +140,48 @@ pcall(function()
     })
 end)
 
--- 全局设置
+-- ===================== 仅保留你提供的范围攻击核心代码 =====================
 local _ENV = (getgenv or getrenv or getfenv)()
-local MIN_CLICK_DELAY = 0.0005
-local Settings = {AutoClick = true, ClickDelay = 0.3} -- 攻速 0.3
-local _G = _G or getfenv(0)._G
-_G.FastAttack = _G.FastAttack ~= nil and _G.FastAttack or true
--- 初始化ToggleStates并默认开启自动V3
-_G.ToggleStates = _G.ToggleStates or {}
-_G.ToggleStates["自动V3"] = true -- 默认开启自动V3
-_G.AutoBuso = _G.AutoBuso or true -- 默认开启自动武装色霸气
+local Settings = {AutoClick = true, ClickDelay = 0.3}
+local AutoHakiEnabled = false
+local autoHakiTask = nil
 
--- 补充缺失的 onCharacterAdded 函数（避免语法错误）
-local function onCharacterAdded(char)
-    -- 空函数占位，不影响原有逻辑
-end
-
--- Helper
-local function SafeWaitForChild(parent, childName, timeout)
-    timeout = timeout or 10
-    local ok, res = pcall(function() return parent:WaitForChild(childName, timeout) end)
-    if ok then return res end
-    return nil
-end
-
-local function IsAlive(character)
-    if not character then return false end
-    local humanoid = character:FindFirstChildOfClass("Humanoid")
-    return humanoid and humanoid.Health and humanoid.Health > 0
-end
-
-local function GetRandomValidPart(target)
-    if not target then return nil end
-    local allParts = target:GetDescendants()
-    local validParts = {}
-    local humanoidRootPart = target:FindFirstChild("HumanoidRootPart")
-    local boneParts = humanoidRootPart and humanoidRootPart.Parent and humanoidRootPart.Parent:GetDescendants() or {}
-    for _, part in ipairs(allParts) do
-        if part:IsA("BasePart") and part.CanCollide and table.find(boneParts, part) then
-            table.insert(validParts, part)
-        end
+-- Auto Haki函数
+local function startAutoHakiLoop()
+    if autoHakiTask then
+        task.cancel(autoHakiTask)
+        autoHakiTask = nil
     end
-    return #validParts > 0 and validParts[math.random(1, #validParts)] or target:FindFirstChild("HumanoidRootPart")
-end
-
--- 检索核心组件
-local function CheckAndGetCoreComponents()
-    local Remotes, Modules, Net, RegisterAttack, RegisterHit, Enemies = nil, nil, nil, nil, nil, nil
-    while true do
-        Remotes = SafeWaitForChild(ReplicatedStorage, "Remotes", 2)
-        Modules = SafeWaitForChild(ReplicatedStorage, "Modules", 2)
-        Net = Modules and SafeWaitForChild(Modules, "Net", 2) or nil
-        RegisterAttack = Net and SafeWaitForChild(Net, "RE/RegisterAttack", 2) or nil
-        RegisterHit = Net and SafeWaitForChild(Net, "RE/RegisterHit", 2) or nil
-        Enemies = SafeWaitForChild(Workspace, "Enemies", 2)
-        if Remotes and Modules and Net and RegisterAttack and RegisterHit and Enemies then
-            return Remotes, Net, RegisterAttack, RegisterHit, Enemies
+    autoHakiTask = task.spawn(function()
+        while AutoHakiEnabled do
+            task.wait(0.2)
+            if AutoHakiEnabled and LocalPlayer.Character and not LocalPlayer.Character:FindFirstChild("HasBuso") then
+                pcall(function()
+                    ReplicatedStorage.Remotes.CommF_:InvokeServer("Buso")
+                end)
+            end
         end
-        task.wait(1)
-    end
+        autoHakiTask = nil
+    end)
 end
 
--- FastAttack 模块（距离 2500）
-local Module = {}
-Module.FastAttack = (function()
+LocalPlayer.CharacterAdded:Connect(function(newCharacter)
+    if AutoHakiEnabled then
+        task.wait(2)
+        startAutoHakiLoop()
+    end
+end)
+
+-- 快速攻击模块
+local FastAttackModule = (function()
     if _ENV.rz_FastAttack then return _ENV.rz_FastAttack end
+    
     local FastAttack = {
-        Distance = 2500, -- 距离 2500
+        Distance = 2500,
         attackMobs = true,
         attackPlayers = true,
         Equipped = nil,
-        IsRunning = _G.FastAttack,
+        IsRunning = _G.FastAttack or true,
         consecutiveFailures = 0,
         maxConsecutiveFailures = 5
     }
@@ -218,10 +189,12 @@ Module.FastAttack = (function()
     local function ProcessEnemies(OthersEnemies, Folder)
         if not Folder or not FastAttack.attackMobs then return nil end
         local BasePart = nil
-        for _, Enemy in ipairs(Folder:GetChildren()) do
-            if Enemy == LocalPlayer.Character or not IsAlive(Enemy) then continue end
-            local foundPart = GetRandomValidPart(Enemy)
-            if foundPart and (LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and (LocalPlayer.Character.HumanoidRootPart.Position - foundPart.Position).Magnitude < FastAttack.Distance) then
+        for _, Enemy in Folder:GetChildren() do
+            if Enemy == LocalPlayer.Character then continue end
+            local humanoid = Enemy:FindFirstChildOfClass("Humanoid")
+            if not humanoid or humanoid.Health <= 0 then continue end
+            local foundPart = Enemy:FindFirstChild("HumanoidRootPart") or Enemy:FindFirstChildWhichIsA("BasePart")
+            if foundPart and LocalPlayer:DistanceFromCharacter(foundPart.Position) < FastAttack.Distance then
                 table.insert(OthersEnemies, {Enemy, foundPart})
                 BasePart = foundPart
             end
@@ -232,12 +205,14 @@ Module.FastAttack = (function()
     local function ProcessRealPlayers(OthersEnemies)
         if not FastAttack.attackPlayers then return nil end
         local BasePart = nil
-        for _, OtherPlayer in ipairs(Players:GetPlayers()) do
+        for _, OtherPlayer in Players:GetPlayers() do
             if OtherPlayer == LocalPlayer then continue end
             local OtherChar = OtherPlayer.Character
-            if not IsAlive(OtherChar) then continue end
-            local foundPart = GetRandomValidPart(OtherChar)
-            if foundPart and (LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and (LocalPlayer.Character.HumanoidRootPart.Position - foundPart.Position).Magnitude < FastAttack.Distance) then
+            if not OtherChar then continue end
+            local humanoid = OtherChar:FindFirstChildOfClass("Humanoid")
+            if not humanoid or humanoid.Health <= 0 then continue end
+            local foundPart = OtherChar:FindFirstChild("HumanoidRootPart") or OtherChar:FindFirstChildWhichIsA("BasePart")
+            if foundPart and LocalPlayer:DistanceFromCharacter(foundPart.Position) < FastAttack.Distance then
                 table.insert(OthersEnemies, {OtherChar, foundPart})
                 BasePart = foundPart
             end
@@ -245,37 +220,35 @@ Module.FastAttack = (function()
         return BasePart
     end
 
-    function FastAttack:Attack(BasePart, OthersEnemies)
-        local _, Net, temp_RegisterAttack, temp_RegisterHit, _ = CheckAndGetCoreComponents()
-        if not (BasePart and OthersEnemies and #OthersEnemies > 0 and temp_RegisterAttack and temp_RegisterHit) then
-            self.consecutiveFailures = self.consecutiveFailures + 1
-            if self.consecutiveFailures >= self.maxConsecutiveFailures then
-                self.consecutiveFailures = 0
-                self.Equipped = LocalPlayer.Character and IsAlive(LocalPlayer.Character) and LocalPlayer.Character:FindFirstChildOfClass("Tool")
-            end
-            task.delay(0.5, function() self:AttackNearest() end)
-            return
-        end
-        self.consecutiveFailures = 0
-        temp_RegisterAttack:FireServer(Settings.ClickDelay or MIN_CLICK_DELAY)
-        temp_RegisterHit:FireServer(BasePart, OthersEnemies)
-    end
-
     function FastAttack:AttackNearest()
         if not self.IsRunning then return end
-        local _, _, _, _, Enemies = CheckAndGetCoreComponents()
         local OthersEnemies = {}
-        local Part1 = ProcessEnemies(OthersEnemies, Enemies)
+        local Enemies = Workspace:FindFirstChild("Enemies")
+        local Part1 = Enemies and ProcessEnemies(OthersEnemies, Enemies)
         local Part2 = ProcessRealPlayers(OthersEnemies)
+        
         if #OthersEnemies > 0 then
-            self:Attack(Part1 or Part2, OthersEnemies)
+            local targetPart = Part1 or Part2
+            if targetPart then
+                local Remotes = ReplicatedStorage:FindFirstChild("Remotes")
+                if Remotes then
+                    local Modules = ReplicatedStorage:FindFirstChild("Modules")
+                    local Net = Modules and Modules:FindFirstChild("Net")
+                    local RegisterAttack = Net and Net:FindFirstChild("RE/RegisterAttack")
+                    local RegisterHit = Net and Net:FindFirstChild("RE/RegisterHit")
+                    if RegisterAttack and RegisterHit then
+                        RegisterAttack:FireServer(Settings.ClickDelay or 0)
+                        RegisterHit:FireServer(targetPart, OthersEnemies)
+                    end
+                end
+            end
         end
     end
 
     function FastAttack:BladeHits()
         if not self.IsRunning then return end
-        local Equipped = LocalPlayer.Character and IsAlive(LocalPlayer.Character) and LocalPlayer.Character:FindFirstChildOfClass("Tool")
-        if Equipped and Equipped.ToolTip ~= "Gun" then
+        local Equipped = LocalPlayer.Character and LocalPlayer.Character:FindFirstChildOfClass("Tool")
+        if Equipped then
             self:AttackNearest()
         end
     end
@@ -286,7 +259,7 @@ Module.FastAttack = (function()
             if Settings.AutoClick and FastAttack.IsRunning then
                 FastAttack:BladeHits()
             else
-                task.wait()
+                task.wait(0.1)
             end
         end
     end)
@@ -295,109 +268,25 @@ Module.FastAttack = (function()
     return FastAttack
 end)()
 
--- 恢复逻辑
-task.spawn(function()
-    while true do
-        task.wait(1)
-        if not _ENV.rz_FastAttack then
-            while not _ENV.rz_FastAttack do
-                task.wait(0.5)
-                if _G.FastAttack then
-                    _ENV.rz_FastAttack = Module.FastAttack or _ENV.rz_FastAttack
-                end
-            end
-        end
-    end
-end)
-
--- ========== 修复后的自动V4逻辑（删除重复定义，保留一处） ==========
+-- ========== 自动V4逻辑 ==========
 local autoV4Task = nil
-local autoV4State = false -- 统一管理状态
 local function callAwakeningRemote()
     local character = LocalPlayer.Character
     if not character then return end
-    
     local humanoid = character:FindFirstChildOfClass("Humanoid")
     if not humanoid or humanoid.Health <= 0 then return end
-    
-    -- 优先从角色身上找Awakening（装备状态），再从背包找
-    local Awakening = character:FindFirstChild("Awakening") or LocalPlayer.Backpack:FindFirstChild("Awakening")
+    local Backpack = LocalPlayer:FindFirstChild("Backpack")
+    if not Backpack then return end
+    local Awakening = Backpack:FindFirstChild("Awakening")
     if not Awakening then return end
-    
-    local RemoteFunc = Awakening:FindFirstChildOfClass("RemoteFunction")
+    local RemoteFunc = Awakening:FindFirstChild("RemoteFunction")
     if not RemoteFunc then return end
-    
-    -- 增加重试机制，提升调用成功率
-    local success, result = pcall(function()
-        return RemoteFunc:InvokeServer("AwakenV4", true)
+    pcall(function()
+        RemoteFunc:InvokeServer(true)
     end)
-    
-    if not success then
-        warn("V4觉醒调用失败:", result)
-        -- 失败后0.5秒重试一次
-        task.delay(0.5, function()
-            pcall(function()
-                RemoteFunc:InvokeServer("AwakenV4", true)
-            end)
-        end)
-    end
 end
 
--- 绑定事件：首次加载+每次复活都触发
-local localPlayer = game.Players.LocalPlayer
-if localPlayer.Character then
-    onCharacterAdded(localPlayer.Character)
-end
-localPlayer.CharacterAdded:Connect(onCharacterAdded)
-
--- 自动武装色霸气核心逻辑
-local isDead = false
-local function activateBusoIfNeeded(char)
-    if not char or not _G.AutoBuso then return end
-    
-    -- 确保角色存活且有人类oid
-    local humanoid = char:FindFirstChildOfClass("Humanoid")
-    if not humanoid or humanoid.Health <= 0 then
-        isDead = true
-        return
-    end
-    
-    -- 检测到角色从死亡变为存活（复活）
-    if isDead then
-        isDead = false
-        -- 复活后短暂延迟，等角色加载完成
-        task.wait(0.5)
-    end
-    
-    -- 激活武装色的核心条件
-    if CollectionService:HasTag(char, "Buso") and not char:FindFirstChild("HasBuso") then
-        local success, err = pcall(function()
-            local commRemote = ReplicatedStorage:FindFirstChild("Remotes"):FindFirstChild("CommF_")
-            if commRemote then
-                commRemote:InvokeServer("Buso")
-            end
-        end)
-        if not success then
-            warn("激活武装色失败:", err)
-        end
-    end
-end
-
--- 1. 每帧检测（基础逻辑）
-RunService.Heartbeat:Connect(function()
-    local char = LocalPlayer.Character
-    activateBusoIfNeeded(char)
-end)
-
--- 2. 监听角色加载事件（专门针对复活/角色切换）
-LocalPlayer.CharacterAdded:Connect(function(newChar)
-    isDead = false -- 角色加载完成，标记为存活
-    -- 复活后延迟检测，确保角色完全加载
-    task.wait(1)
-    activateBusoIfNeeded(newChar)
-end)
-
--- 自动V3默认启动
+-- ========== 自动V3逻辑 ==========
 local autoV3Task = nil
 local function callRaceV3Remote()
     local Remotes = ReplicatedStorage:FindFirstChild("Remotes")
@@ -406,16 +295,6 @@ local function callRaceV3Remote()
     if not CommE then return end
     pcall(function()
         CommE:FireServer("ActivateAbility")
-    end)
-end
-
-if _G.ToggleStates["自动V3"] then
-    autoV3Task = task.spawn(function()
-        while _G.ToggleStates["自动V3"] do
-            callRaceV3Remote()
-            task.wait(1)
-        end
-        autoV3Task = nil
     end)
 end
 
@@ -500,14 +379,14 @@ Window:EditOpenButton({
 -- 创建标签页
 local Tabs = {}
 do
-    Tabs.AttackTab = Window:Tab({ Title = "战斗参数", Icon = "sword" }) -- 攻击设置→战斗参数
+    Tabs.AttackTab = Window:Tab({ Title = "战斗参数", Icon = "sword" })
     Tabs.MovementTab = Window:Tab({ Title = "移动设置", Icon = "run" })
     Tabs.ESPTab = Window:Tab({ Title = "ESP设置", Icon = "eye" })
     Tabs.TeleportTab = Window:Tab({ Title = "传送功能", Icon = "teleport" })
     Tabs.ScriptsTab = Window:Tab({ Title = "功能2", Icon = "code" })
 end
 
--- ===================== 战斗参数标签页 =====================
+-- ===================== 战斗参数标签页（仅保留和你提供代码匹配的UI） =====================
 Tabs.AttackTab:Paragraph({
     Title = "战斗参数",
     Desc = "调整攻击、武装色等战斗相关设置",
@@ -516,119 +395,105 @@ Tabs.AttackTab:Paragraph({
     Color = "Red"
 })
 
--- 快速攻击开关
+-- 攻击开关
 Tabs.AttackTab:Toggle({
-    Title = "攻击玩家和怪物",
-    Desc = "开启/关闭自动攻击玩家和怪物",
-    Value = _G.FastAttack,
+    Title = "攻击开关",
+    Value = true,
     Callback = function(state)
         if _ENV.rz_FastAttack then
             _ENV.rz_FastAttack.IsRunning = state
             _G.FastAttack = state
-        else
-            _G.FastAttack = state
+            WindUI:Notify({ Title = "快速攻击", Content = state and "已开启" or "已关闭", Duration = 2 })
         end
-        WindUI:Notify({ Title = "快速攻击", Content = state and "已开启" or "已关闭", Duration = 1.5 })
     end
 })
 
 -- 攻击范围
-Tabs.AttackTab:Slider({
+Tabs.AttackTab:Input({
     Title = "攻击范围",
-    Desc = "调整攻击检测距离（1-5000）",
-    Value = {
-        Min = 1,
-        Max = 5000,
-        Default = 2500,
-    },
-    Callback = function(value)
-        local num = math.floor(value)
+    Value = "2500",
+    Placeholder = "输入攻击范围",
+    Callback = function(text)
+        local num = tonumber(text) or 2500
+        num = math.floor(math.clamp(num, 1, 2500))
         if _ENV.rz_FastAttack then
             _ENV.rz_FastAttack.Distance = num
-        else
-            if Module.FastAttack then Module.FastAttack.Distance = num end
+            WindUI:Notify({ Title = "攻击范围", Content = "已设置为: " .. num, Duration = 2 })
         end
-        WindUI:Notify({ Title = "攻击范围", Content = "已设置为: " .. num, Duration = 1.5 })
     end
 })
 
 -- 攻击速度
-Tabs.AttackTab:Slider({
+Tabs.AttackTab:Input({
     Title = "攻击速度",
-    Desc = "调整攻击间隔（0.0005-2）",
-    Step = 0.01,
-    Value = {
-        Min = MIN_CLICK_DELAY,
-        Max = 2,
-        Default = 0.3,
-    },
-    Callback = function(value)
-        Settings.ClickDelay = value
-        WindUI:Notify({ Title = "攻击速度", Content = "已设置为: " .. string.format("%.2f", value), Duration = 1.5 })
+    Value = "0.3",
+    Placeholder = "输入攻击速度",
+    Callback = function(text)
+        local num = tonumber(text) or 0.3
+        num = math.round(math.clamp(num, 0.05, 2) * 100) / 100
+        Settings.ClickDelay = num
+        WindUI:Notify({ Title = "攻击速度", Content = "已设置为: " .. num, Duration = 2 })
     end
 })
 
--- 自动点击开关
+-- 攻击怪物
 Tabs.AttackTab:Toggle({
-    Title = "自动攻击",
-    Desc = "开启后自动持续攻击",
-    Value = Settings.AutoClick,
+    Title = "攻击怪物",
+    Value = true,
     Callback = function(state)
-        Settings.AutoClick = state
-        WindUI:Notify({ Title = "自动点击", Content = state and "已开启" or "已关闭", Duration = 1.5 })
+        if _ENV.rz_FastAttack then
+            _ENV.rz_FastAttack.attackMobs = state
+            WindUI:Notify({ Title = "攻击目标", Content = state and "攻击怪物: 开启" or "攻击怪物: 关闭", Duration = 2 })
+        end
     end
 })
 
--- 自动武装色霸气UI开关（默认开启）
+-- 攻击玩家
 Tabs.AttackTab:Toggle({
-    Title = "自动武装色霸气",
-    Desc = "自动保持武装色开启（含复活自动重开）",
-    Value = _G.AutoBuso,
+    Title = "攻击玩家",
+    Value = true,
     Callback = function(state)
-        _G.AutoBuso = state
-        WindUI:Notify({
-            Title = "自动武装色霸气",
-            Content = state and "已开启" or "已关闭",
-            Duration = 1.5
-        })
+        if _ENV.rz_FastAttack then
+            _ENV.rz_FastAttack.attackPlayers = state
+            WindUI:Notify({ Title = "攻击目标", Content = state and "攻击玩家: 开启" or "攻击玩家: 关闭", Duration = 2 })
+        end
     end
 })
 
--- 自动V4开关
+Tabs.AttackTab:Divider()
+
+-- 自动V4
 Tabs.AttackTab:Toggle({
     Title = "自动V4",
-    Value = autoV4State,
+    Value = false,
     Callback = function(state)
+        _G.ToggleStates = _G.ToggleStates or {}
         _G.ToggleStates["自动V4"] = state
-        autoV4State = state
-        
-        -- 取消原有任务
         if autoV4Task then
             task.cancel(autoV4Task)
             autoV4Task = nil
         end
-        
         if state then
-            -- 新的循环逻辑：0.98秒调用一次，提升触发频率
             autoV4Task = task.spawn(function()
-                while autoV4State do
+                while _G.ToggleStates["自动V4"] do
                     callAwakeningRemote()
-                    task.wait(0.98)
+                    task.wait(1)
                 end
                 autoV4Task = nil
             end)
-            WindUI:Notify({ Title = "自动V4", Content = "已开启", Duration = 1.5 })
+            WindUI:Notify({ Title = "自动V4", Content = "已开启", Duration = 2 })
         else
-            WindUI:Notify({ Title = "自动V4", Content = "已关闭", Duration = 1.5 })
+            WindUI:Notify({ Title = "自动V4", Content = "已关闭", Duration = 2 })
         end
     end
 })
 
--- 自动V3开关（默认开启）
+-- 自动V3
 Tabs.AttackTab:Toggle({
     Title = "自动V3",
-    Value = _G.ToggleStates["自动V3"],
+    Value = false,
     Callback = function(state)
+        _G.ToggleStates = _G.ToggleStates or {}
         _G.ToggleStates["自动V3"] = state
         if autoV3Task then
             task.cancel(autoV3Task)
@@ -649,6 +514,27 @@ Tabs.AttackTab:Toggle({
     end
 })
 
+Tabs.AttackTab:Divider()
+
+-- 自动武装色
+Tabs.AttackTab:Toggle({
+    Title = "自动武装色",
+    Value = true,
+    Callback = function(state)
+        AutoHakiEnabled = state
+        if state then
+            startAutoHakiLoop()
+            WindUI:Notify({ Title = "自动武装色", Content = "已开启", Duration = 2 })
+        else
+            if autoHakiTask then
+                task.cancel(autoHakiTask)
+                autoHakiTask = nil
+            end
+            WindUI:Notify({ Title = "自动武装色", Content = "已关闭", Duration = 2 })
+        end
+    end
+})
+
 -- 摄像机距离
 Tabs.AttackTab:Input({
     Title = "摄像机距离",
@@ -662,7 +548,6 @@ Tabs.AttackTab:Input({
         end
     end
 })
-
 -- ===================== 移动设置标签页 =====================
 Tabs.MovementTab:Paragraph({
     Title = "移动参数",
@@ -945,7 +830,7 @@ end)
 
 return {
     Window = Window,
-    FastAttack = _ENV.rz_FastAttack or Module.FastAttack,
+    FastAttack = _ENV.rz_FastAttack or FastAttackModule,
     Settings = Settings,
     espEnabled = espEnabled
 }
