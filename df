@@ -1,3 +1,951 @@
--- This file was protected using Luraph Obfuscator v14.5.2 [https://lura.ph/]
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local StarterGui = game:GetService("StarterGui")
+local Workspace = game:GetService("Workspace")
+local UserInputService = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
+local HttpService = game:GetService("HttpService")
+local CollectionService = game:GetService("CollectionService")
 
-return(function(...)local R={"\076\089\090\117\052\076\083\068\097\119\061\061";"\077\118\050\103\077\119\061\061";"\110\098\052\079\082\075\097\083\097\099\061\061","\077\089\106\065\105\068\113\061","\105\070\073\104";"\047\118\075\087\082\073\097\119\077\098\090\112\076\083\083\079\105\084\061\061","\089\069\081\103\077\089\052\055\097\070\050\066\105\070\086\061";"\077\112\114\067\105\068\113\061","\089\069\081\074\077\078\122\061","\082\112\073\103\105\068\077\083";"\089\069\081\120\107\084\061\061";"\107\118\055\055\082\116\061\061";"\102\116\061\061","\107\118\081\104\107\118\050\079","\087\065\121\112\090\078\083\073\054\087\116\067\079\098\073\115\086\108\083\052\057\115\048\108\075\097\110\115\068\079\101\080\075\047\043\082\052\108\108\048\115\089\082\105\121\107\074\110\090\085\084\084\097\068\111\073\086\047\055\099\122\071\050\071\051\116\097\112\098\075\109\043\118\085\122\102\077\055\110\056\102\080\116\053\121\050\110\105\079\087\121\066\068\105\089\080\116\053\053\109\053\101\074\061";"\073\070\050\103\082\070\073\065\113\075\052\083\097\070\073\054\097\070\073\056\113\119\061\061","\077\118\069\055\097\070\090\115","\090\089\077\087\086\098\052\090\077\068\055\074\086\086\103\056\076\076\116\061","\107\120\083\079\077\119\061\061","\077\068\090\069\107\116\061\061";"\082\112\050\104\077\070\081\103","\076\068\077\067";"\097\070\081\104\097\078\069\066\077\089\113\061","\121\076\077\087\078\078\087\121\076\073\055\114\047\075\083\056\090\056\073\085","\105\085\075\061";"\086\068\116\114\057\112\081\085\076\098\055\048\078\083\071\083\073\084\061\061";"\105\078\050\079\047\099\061\061";"\102\089\052\056\078\075\071\122\073\079\073\106\105\073\090\068\110\119\061\061";"\082\118\073\079\105\078\073\079\107\089\052\055\107\112\114\083","\082\070\090\055\105\070\084\061";"\082\068\052\065\047\078\087\120","\086\086\081\119\073\079\106\069\052\083\071\080\105\083\083\066\121\075\086\061";"\078\120\108\104\097\120\052\115\121\054\083\084\090\056\050\071\121\099\061\061";"\105\085\113\061";"\105\070\081\055\077\098\090\079\082\112\083\104\077\084\061\061","\097\070\050\066\105\070\086\061","\102\066\116\083\077\109\115\071\102\116\061\061";"\107\118\050\089\076\089\083\109\047\120\108\087\047\118\090\118\057\078\122\061";"","\097\070\081\048\097\098\106\071\105\112\082\061";"\057\089\113\068\097\089\108\101\077\079\114\113\107\083\052\075\077\083\075\061";"\107\054\073\104\047\070\103\071\105\056\055\086\086\054\077\118","\076\075\103\085\090\083\083\117\082\086\107\118\121\083\119\079\090\099\061\061";"\052\086\077\101\097\112\114\052\073\120\090\053\090\073\099\061";"\089\069\081\071\105\112\052\083\057\099\061\061";"\097\078\087\084\107\078\090\049","\082\118\069\114\105\076\050\121\105\079\055\067\110\112\097\119\073\099\061\061"}local function U(U)return R[U-(866722+-831177)]end for U,t in ipairs({{-23942+23943;-951375+951422};{721369-721368;1015778+-1015751},{-571025+571053,-200278+200325}})do while t[613005+-613004]<t[858891+-858889]do R[t[61982-61981]],R[t[-482092-(-482094)]],t[278642-278641],t[-818220+818222]=R[t[-933571-(-933573)]],R[t[-455216-(-455217)]],t[-792052-(-792053)]+(509969+-509968),t[-861255-(-861257)]-(-1040335+1040336)end end do local U=table.concat local t=math.floor local K=type local B=string.char local Q={["\043"]=-795653+795713;b=975809+-975802;g=-658186-(-658231),V=-197869-(-197889),["\052"]=-489500-(-489517);["\048"]=628331-628280;a=-58768+58797,Z=-844954-(-844967),Q=442461+-442400,O=567707+-567655,v=-910865+910919;["\057"]=-244099-(-244129),K=-971944-(-971948),T=-723091+723139,f=243984-243970;I=-426510-(-426531),H=466968+-466905;q=-984681+984689;F=-991156+991162,["\047"]=614061+-614035,h=226871-226825;["\049"]=813446-813403,e=1044682-1044624;W=-938633+938690;c=60801+-60801,D=-234907+234962,t=-527867-(-527899);x=413213-413174;X=325117-325106,m=-230184+230186;d=721129+-721098;E=-682306+682359;l=974207+-974206;["\056"]=-1026053-(-1026089),["\050"]=-501249-(-501254);r=433643+-433594,y=-319716+319728,A=-358312-(-358362);P=971212+-971197;G=-685357-(-685398),Y=-193764-(-193787),j=-298827-(-298836),C=656211-656164,R=-634726-(-634754);J=-789112-(-789156);N=833651-833629,w=-287074-(-287090),p=-1012531-(-1012569),["\055"]=-312-(-345);o=871931-871872,u=41968-41926,n=860213-860195;i=-444586-(-444613);["\051"]=-957059-(-957121);L=137660+-137641;S=979929-979892;["\053"]=875369-875359,z=-1025234+1025290,B=527993-527959,s=920302-920262,U=895865-895862,k=-392490-(-392514),["\054"]=42734+-42699,M=-360877+360902}local u=table.insert local k=string.len local H=string.sub local m=R for R=-80867+80868,#m,-467719-(-467720)do local o=m[R]if K(o)=="\115\116\114\105\110\103"then local K=k(o)local y={}local q=-1024467-(-1024468)local r=-353858+353858 local p=-884499-(-884499)while q<=K do local R=H(o,q,q)local U=Q[R]if U then r=r+U*(-784695-(-784759))^((-708873+708876)-p)p=p+(805699+-805698)if p==-32353+32357 then p=1039424+-1039424 local R=t(r/(426072+-360536))local U=t((r%(834140-768604))/(889054+-888798))local K=r%(-1043420+1043676)u(y,B(R,U,K))r=-884049-(-884049)end elseif R=="\061"then u(y,B(t(r/(908977-843441))))if q>=K or H(o,q+(1043128+-1043127),q+(981080-981079))~="\061"then u(y,B(t((r%(958780+-893244))/(-151152-(-151408)))))end break end q=q+(-939462-(-939463))end m[R]=U(y)end end end return(function(R,K,B,Q,u,k,H,o,r,q,p,A,M,F,I,Y,W,t,P,m,y)W,p,P,t,I,F,A,M,Y,y,q,m,r,o=function(R,U)local K=r(U)local B=function(B,Q)return t(R,{B;Q},U,K)end return B end,function(R)local U,t=960455+-960454,R[556785-556784]while t do o[t],U=o[t]-(1040583-1040582),(-443310+443311)+U if o[t]==998221-998221 then o[t],m[t]=nil,nil end t=R[U]end end,function(R,U)local K=r(U)local B=function()return t(R,{},U,K)end return B end,function(t,B,Q,u)local i,X,T,N,j,b,a,Z,L,n,c,S,s,E,r,o,z,J,e,g,f,V,H,D,l,v,p,G,O,x,q,w,h,Y while t do if t<9943790-489063 then if t<518149+2775957 then if t<-922976+2855724 then if t<-78481-(-984628)then if t<1279763-506549 then if t<-40226-(-444226)then if t<1118000-816944 then S=824450-824449 l=X[S]t=8882232-(-890527)i=l else Y=64223+35184372024609 t={}D=-420858+421113 m[Q[698098+-698096]]=t H=m[Q[-1043415-(-1043418)]]p=H H=q%Y m[Q[819553-819549]]=H J=q%D D=-1024204+1024206 c=U(-25849-(-61405))Y=J+D O=-447585-(-447586)m[Q[-427018+427023]]=Y D=R[c]z=O c=U(-151790-(-187367))J=D[c]D=J(o)J=U(1036253-1000689)r[q]=J c=370155-370154 J=-547701+547852 O=327592-327592 N=D t=4613933-(-33806)G=z<O O=c-z end else l=t x=-495128+495129 E=X[x]x=false S=E==x t=S and 11322443-(-624013)or 941834+273347 i=S end else if t<1866405-992655 then J=m[Y]H=J t=911738+5929527 else D=nil J=nil t=5426448-764970 p=nil end end else if t<445171+748518 then if t<336046-(-753640)then c=665196-665196 N=-698267-(-698522)t=m[Q[-816181-(-816182)]]D=t(c,N)q=r o[q]=D t=432946+2366114 q=nil else q=B[101182+-101180]t=m[Q[301396-301395]]o=B[-685393-(-685394)]r=t t=r[q]t=t and-896951+4084009 or-390410-(-782318)end else if t<2481592-1008405 then t=l t=593659+9002720 H=i else h=#e a=-580883+580884 s=-385758+385759 f=p(s,h)t=-840476+3102004 s=J(e,f)h=m[G]V=s-a f=nil j=D(V)h[s]=j s=nil end end end else if t<-221832+2635390 then if t<2259867-38177 then if t<2324333-131375 then if t<-104148+2130381 then t=true t=t and 12550334-271253 or-586969+9199829 else t=R[U(274638+-239070)]H={}end else o=U(-139536-(-175086))H=U(166357+-130798)t=R[H]H=R[o]o=U(-171488-(-207038))R[o]=t o=U(134652-99093)R[o]=H o=m[Q[-292767+292768]]q=o()t=-1011919+9305990 end else if t<112552+2219228 then s=#e h=987701+-987701 f=s==h t=f and 263272+4848854 or 2651226-718531 else e=nil r=M(r)f=nil G=nil G=y()c=nil r=nil f=925397+-925396 q=M(q)s=M(s)e={}t=13309262-271096 N=M(N)N=U(860280+-824724)p=M(p)Y=M(Y)O=M(O)s=666455-666199 q=nil J=nil J=U(753799-718247)Y=R[J]z=nil h=s J=U(-177894+213474)O=y()D=M(D)p=Y[J]c=U(779614-744053)Y=y()m[Y]=p D=U(937092-901540)J=R[D]D=U(-308698-(-344244))p=J[D]D=R[c]c=U(524968+-489386)J=D[c]z={}c=R[N]N=U(-763656-(-799240))D=c[N]N=y()c=576500-576500 m[N]=c c=-16933-(-16935)s=-1047933+1047934 m[O]=c c={}m[G]=z j=s s=187528-187528 z=-606846-(-606846)V=j<s s=f-j end end else if t<2457931-(-355361)then if t<1665509-(-1040581)then t=true t=t and 16267229-21616 or 3759894-417549 else D=not J r=r+Y q=r<=p q=D and q D=r>=p D=J and D q=D or q D=511355+419935 t=q and D q=225679+4270354 t=t or q end else if t<4237386-1000657 then t=5275398-613920 else N=I(12916508-381889,{})H=U(663191+-627643)p=U(-251136-(-286701))t=R[H]c=U(409652-374097)o=m[Q[124858+-124854]]r=R[p]D=R[c]c={D(N)}D=376742-376740 J={K(c)}Y=J[D]p=r(Y)r=U(-155571+191133)q=o(p,r)o={q()}H=t(K(o))o=H q=m[Q[-1014950+1014955]]H=q t=q and 11102769-(-597857)or-762599+10623749 end end end end else if t<5053834-394719 then if t<-345879+4186430 then if t<-392336+3960037 then if t<3190608-(-310967)then if t<3375970-(-51969)then t=P(95202+7986713,{p})v={t()}H={K(v)}t=R[U(179331-143778)]else H=N t=O t=N and 12766994-(-894186)or 11366150-(-713886)end else j=not h L=L+g H=L<=v H=j and H j=L>=v j=h and j H=j or H j=765318+3042961 t=H and j H=458641+14571646 t=t or H end else if t<3827651-172407 then h=U(-768638+804197)t=R[h]h=U(-592845+628395)R[h]=t t=6587862-(-830104)else V=U(160406+-124854)j=y()m[j]=L H=R[V]a=-56677+56777 V=U(102266+-66720)t=H[V]V=9570+-9569 T=-620823+630823 H=t(V,a)V=y()n=-257898+258153 m[V]=H Z=-899314+899314 a=767018+-767018 t=m[D]H=t(a,n)a=y()m[a]=H t=m[D]X=-595093+595095 n=-995141-(-995142)b=m[V]S=U(705743+-670178)H=t(n,b)n=y()w=11000-10999 m[n]=H H=m[D]b=H(w,X)X=U(1031843+-996258)H=251912-251911 t=b==H H=U(-88368-(-123930))b=y()m[b]=t l=R[S]E=m[D]x={E(Z,T)}S=l(K(x))l=U(-591636-(-627221))t=U(864745+-829153)t=f[t]i=S..l w=X..i t=t(f,H,w)X=U(923112-887557)w=y()m[w]=t i=F(171092+9997222,{D;j;O;r;q;s,b;w;V,n;a;N})H=R[X]X={H(i)}t={K(X)}X=t t=m[b]t=t and 15650406-(-742071)or 392700+13795176 end end else if t<-401038+4945452 then if t<-950768+5424102 then r=939699+-939667 z=118065+-118052 q=m[Q[-25640+25643]]N=367629-367627 o=q%r p=m[Q[-893798-(-893802)]]D=m[Q[-918303-(-918305)]]t=1044741+10958263 f=m[Q[-991379-(-991382)]]e=f-o f=-446827+446859 G=e/f O=z-G c=N^O J=D/c Y=p(J)p=1013764+4293953532 r=Y%p Y=-102387-(-102389)p=Y^o q=r/p c=444268+-444267 p=m[Q[607280+-607276]]D=q%c c=795258+4294172038 J=D*c Y=p(J)p=m[Q[116107-116103]]z=-565080+565336 J=p(q)r=Y+J Y=852744+-787208 p=r%Y q=nil o=nil D=834884-769348 N=280331-280075 J=r-p Y=J/D D=968754+-968498 J=p%D r=nil c=p-J D=c/N p=nil N=929516-929260 c=Y%N O=Y-c Y=nil N=O/z O={J;D;c,N}D=nil N=nil m[Q[-871587-(-871588)]]=O J=nil c=nil else t=m[Q[-845866-(-845876)]]q=m[Q[110425+-110414]]o[t]=q t=m[Q[-861818+861830]]q={t(o)}H={K(q)}t=R[U(-379635-(-415213))]end else if t<5060987-415297 then t=H and 674665+2591693 or 749811+9262585 else O=O+z c=O<=N e=not G c=e and c e=O>=N e=G and e c=e or c e=968619+12461455 t=c and e c=1266538-389835 t=t or c end end end else if t<8388139-496280 then if t<572787+6682908 then if t<-211300+6417456 then if t<4471050-(-368967)then H={q}t=R[U(-128493+164083)]else s=y()h=W(10972633-25846,{s,N,O,Y})S=nil f={}j=y()p=nil e=nil V=U(196756-161202)m[s]=f J=nil f=y()m[f]=h h={}b=U(-198188+233758)a={}t=R[U(1026742-991179)]m[j]=h X=U(107768-72189)h=R[V]w=m[j]n={[b]=w,[X]=S}z=nil z=24959501479182-(-753752)c=nil V=h(a,n)q=V Y=M(Y)h=A(-809176+1979490,{j,s,G,N;O;f})f=M(f)O=M(O)r=h G=M(G)j=M(j)s=M(s)N=M(N)Y=U(937602+-902042)p=R[Y]O=U(-458002-(-493589))D=nil D=U(-133287-(-168861))J=R[D]N=r(O,z)r=nil c=q[N]N=U(-590765-(-626340))H={}N=J[N]D={N(J,c)}q=nil Y=p(K(D))p=Y()end else D=U(360040-324488)J=H H=R[D]D=U(-694060-(-729606))t=H[D]D=y()c=U(-840062+875623)m[D]=t H=R[c]G=U(-898054+933615)c=U(750994+-715408)t=H[c]O=t z=R[G]N=z c=t t=z and 9409615-(-272275)or 4413627-918442 end else if t<-796158+8250350 then t=1528433-(-411807)else q=m[Q[494635-494632]]r=290917+-290916 o=q~=r t=o and 171166+4162999 or 819134+10446443 end end else if t<8970013-472022 then if t<8737007-456605 then t=474346+7819725 else t=true t=t and 1955888-(-261612)or 1325553-(-866602)end else if t<8495058-(-849988)then H={}t=R[U(-149385-(-184943))]else t={}q=322699+-322698 o=t r=m[Q[660875-660866]]t=-869831+3668891 p=r r=-102687+102688 Y=r r=-767748-(-767748)J=Y<r r=q-Y end end end end end else if t<-812346+13082237 then if t<344036+10648597 then if t<10487212-479585 then if t<9324626-(-466437)then if t<8780892-(-974283)then if t<608268+9008133 then t=14599318-337557 m[q]=H else e=U(908250-872689)G=R[e]e=U(501270-465699)z=G[e]N=z t=-778870+4274055 end else m[q]=i x=m[n]Z=721028+-721027 E=x+Z S=X[E]l=z+S S=493788-493532 t=l%S E=m[a]z=t S=G+E E=866606+-866350 t=-46944+14308705 l=S%E G=l end else if t<10232630-343957 then t=782573+9229823 m[Q[-808287-(-808292)]]=H o=nil else H=U(-910603+946179)o=U(943741-908153)t=R[H]H=t(o)H={}t=R[U(673445+-637879)]end end else if t<902444+9262920 then if t<330546+9715321 then t=m[Q[-714148-(-714155)]]t=t and 213814+15397175 or 8370847-(-1044665)else m[q]=L t=m[q]t=t and-70504+13007874 or-400327+12149907 end else if t<10083602-(-539673)then Y=144719+-144717 q=m[Q[253986-253985]]p=5977+-5976 r=q(p,Y)q=-300680+300681 o=r==q H=o t=o and-209505+4851980 or-597616+12847418 else o=m[Q[-67446+67447]]H=#o o=-112896-(-112896)t=H==o t=t and 13103190-754737 or 11465443-(-537561)end end end else if t<-611418+12578881 then if t<861131+10854304 then if t<180559+11330311 then if t<12422917-990851 then t=-858374+8708692 q=m[Q[-536003-(-536006)]]r=68464+-68461 o=q*r q=993136+-992879 H=o%q m[Q[-555718-(-555721)]]=H else h=82865-82865 t=1304970-(-627725)s=#e f=s==h end else t=9504334-(-356816)r=m[Q[-980483+980489]]q=r==o H=q end else if t<11555755-(-219518)then t=true t=2721166-(-621179)else x=1028113-1028111 E=X[x]x=m[w]S=E==x i=S t=-975784+2190965 end end else if t<-300507+12422742 then if t<381835+11662083 then t=R[U(327856+-292289)]r=U(307223-271662)q=R[r]r=U(-168334-(-203916))o=q[r]r=m[Q[1036003+-1036002]]q={o(r)}H={K(q)}else O=U(-866159+901730)t=172438+13488742 N=R[O]H=N end else if t<-335571+12553770 then t=true m[Q[396383-396382]]=t H={}t=R[U(-313043+348600)]else t=807514+3834961 q=m[Q[495500+-495498]]r=m[Q[-318851-(-318854)]]o=q==r H=o end end end end else if t<15074551-920204 then if t<712373+12302222 then if t<13393981-590735 then if t<-272345+12764823 then if t<12628289-323070 then t=m[D]h=810088-810082 g=-9922-(-9923)v=t(g,h)h=U(-871782-(-907341))t=U(-502745+538304)R[t]=v g=R[h]h=1021016+-1021014 t=g>h t=t and 213298+14485002 or 2815865-(-792364)else r=-986962+987215 q=m[Q[-791979-(-791981)]]o=q*r q=-1047019+8114999675054 H=o+q o=35184371595525-(-493307)t=H%o m[Q[-400332+400334]]=t t=11395595-130018 o=m[Q[-237456+237459]]q=-938177+938178 H=o~=q end else r=367351+12757209 H=6616310-425032 q=U(1051931-1016384)o=q^r t=H-o H=U(-850276+885825)o=t t=H/o H={t}t=R[U(-87573-(-123124))]end else if t<12476693-(-458178)then v=z==G L=v t=-358197+10496507 else t=1486095-(-924959)end end else if t<768130+12775708 then if t<12254107-(-787774)then a=not V s=s+j f=s<=h f=a and f a=s>=h a=V and a f=a or f a=13712178-(-754684)t=f and a f=10827829-(-604596)t=t or f else c=O g=U(-103465-(-139021))v=R[g]g=U(430490+-394899)L=v[g]v=L(o,c)L=m[Q[505808+-505802]]g=L()s=v+g f=s+J s=-407401+407657 e=f%s g=-218733+218734 s=r[q]J=e v=J+g t=3734866-(-912873)L=p[v]f=s..L c=nil r[q]=f end else if t<13660674-(-39018)then O=-292561+292564 N=y()m[N]=H t=m[D]z=31192-31127 H=t(O,z)t=924498-924498 g=U(686542-650977)z=t t=573773-573773 G=t e=U(-802842-(-838397))f=W(15034515-(-412629),{})O=y()m[O]=H H=R[e]e={H(f)}t={K(e)}e=t H=989247+-989245 t=e[H]f=t H=U(911629-876081)t=R[H]s=m[r]v=R[g]g=v(f)v=U(1017310-981748)L=s(g,v)s={L()}H=t(K(s))t=2559124-(-962267)s=y()m[s]=H H=-322998-(-322999)L=m[O]v=L L=877142-877141 g=L L=-949144+949144 h=g<L L=H-g else q=y()o=B r=U(-129989-(-165545))t=true m[q]=t H=R[r]r=U(158400+-122811)p=y()t=H[r]r=y()D=U(-777013+812568)m[r]=t t=A(9788221-(-186155),{})Y=y()m[p]=t t=false c=W(12433360-234070,{Y})m[Y]=t J=R[D]D=J(c)H=D t=D and-137229+935482 or 476727+6364538 end end end else if t<15399975-129560 then if t<14660472-43372 then if t<13304550-(-1001477)then if t<13957311-(-266640)then l=m[q]i=l t=l and 783066+-505906 or 8847449-(-925310)else a=M(a)j=M(j)w=M(w)X=nil b=M(b)n=M(n)V=M(V)t=4479208-957817 end else f=s a=f e[f]=a f=nil t=594234+12443932 end else if t<167434+14642165 then j=U(-843689+879239)g=U(-354070-(-389635))t=R[g]h=R[j]g=t(h)t=U(-772205+807764)R[t]=g t=6457701-(-960265)else v=m[q]L=v t=v and 12344129-(-571678)or 9702942-(-435368)end end else if t<15150075-(-689148)then if t<-431759+15938347 then q=U(-762246-(-797815))r=952246+13162496 H=429473+1785344 o=q^r t=H-o o=t H=U(-408932-(-444505))t=H/o H={t}t=R[U(-343396+378968)]else r=154210+-154210 o=U(552472+-516896)t=R[o]q=m[Q[811279-811271]]o=t(q,r)t=959400+8456112 end else if t<16954983-629721 then t=1487302-(-452938)else i=m[q]t=i and 768087+-115767 or 9358825-(-237554)H=i end end end end end end end t=#u return K(H)end,function(R,U)local K=r(U)local B=function(B,Q,u,k,H)return t(R,{B;Q;u;k,H},U,K)end return B end,function(R,U)local K=r(U)local B=function(B,Q,u)return t(R,{B;Q,u},U,K)end return B end,function(R,U)local K=r(U)local B=function(B,Q,u,k)return t(R,{B,Q;u,k},U,K)end return B end,function(R)o[R]=o[R]-(-48507+48508)if o[R]==-1015955+1015955 then o[R],m[R]=nil,nil end end,function(R,U)local K=r(U)local B=function(...)return t(R,{...},U,K)end return B end,function()q=(766656+-766655)+q o[q]=475915-475914 return q end,-899545-(-899545),{},function(R)for U=-992494-(-992495),#R,910514-910513 do o[R[U]]=(-218868-(-218869))+o[R[U]]end if B then local t=B(true)local K=u(t)K[U(1010474+-974904)],K[U(230936-195353)],K[U(-506962-(-542543))]=R,p,function()return-499192+2768008 end return t else return Q({},{[U(-1019463+1055046)]=p;[U(632219+-596649)]=R;[U(-513922-(-549503))]=function()return 2504344-235528 end})end end,{}return(Y(13833574-34979,{}))(K(H))end)(getfenv and getfenv()or _ENV,unpack or table[U(776230-740659)],newproxy,setmetatable,getmetatable,select,{...})end)(...)
+-- ************************ 新增：远程白名单校验（优先执行） ************************
+local WHITELIST_REMOTE_URL = "https://raw.githubusercontent.com/9Reimu8/BoundaryCrack.JSON/refs/heads/main/Hakurei.JSON"
+local WhitelistedPlayers = {} -- 存储远程加载的用户名白名单
+
+-- 远程加载白名单函数（含异常处理）
+local function LoadRemoteWhitelist()
+    table.clear(WhitelistedPlayers)
+    
+    -- 捕获网络请求和JSON解析异常
+    local success, result = pcall(function()
+        -- 1. 获取远程JSON数据（强制HTTPS，防篡改）
+        local remoteJson = game:HttpGet(WHITELIST_REMOTE_URL, true)
+        
+        -- 2. 解析JSON为Lua表（直接适配用户名字符串键，无需格式转换）
+        local remoteWhitelist = HttpService:JSONDecode(remoteJson)
+        
+        -- 3. 赋值到全局白名单表
+        for username, isEnabled in pairs(remoteWhitelist) do
+            if type(username) == "string" and isEnabled then
+                WhitelistedPlayers[username] = true
+            end
+        end
+        
+        return true
+    end)
+    
+    -- 异常处理：加载失败提示并踢出玩家
+    if not success then
+        local errorMsg = string.format("远程白名单加载失败：%s", tostring(result))
+        warn(errorMsg)
+        
+        -- 给本地玩家发送通知并踢出
+        local LocalPlayer = Players.LocalPlayer
+        if LocalPlayer then
+            pcall(function()
+                StarterGui:SetCore("SendNotification", {
+                    Title = "白名单校验错误",
+                    Text = errorMsg,
+                    Duration = 10
+                })
+            end)
+            
+            task.wait(1)
+            LocalPlayer:Kick(errorMsg)
+        end
+        
+        return false
+    end
+    
+    -- 加载成功日志
+    local whitelistCount = 0
+    for _, _ in pairs(WhitelistedPlayers) do
+        whitelistCount = whitelistCount + 1
+    end
+    warn(string.format("远程白名单加载成功，共包含 %d 个授权用户", whitelistCount))
+    return true
+end
+
+-- 白名单校验函数
+local function IsWhitelisted(player)
+    if not player or not player.Name then return false end
+    return WhitelistedPlayers[player.Name] or false
+end
+
+-- ************************ 执行白名单加载与校验（未通过则终止脚本） ************************
+-- 1. 加载远程白名单
+if not LoadRemoteWhitelist() then
+    return -- 加载失败，直接终止脚本
+end
+
+-- 2. 获取本地玩家并校验
+local LocalPlayer = Players.LocalPlayer
+while not LocalPlayer do
+    Players.PlayerAdded:Wait()
+    LocalPlayer = Players.LocalPlayer
+end
+
+local isLocalPlayerWhitelisted = IsWhitelisted(LocalPlayer)
+if not isLocalPlayerWhitelisted then
+    -- 非白名单玩家直接踢出
+    task.wait(0.5)
+    LocalPlayer:Kick(string.format("你未被加入白名单！你的用户名：%s", LocalPlayer.Name))
+    return
+end
+
+-- 3. 白名单校验通过，发送通知
+pcall(function()
+    StarterGui:SetCore("SendNotification", {
+        Title = "白名单认证通过",
+        Text = string.format("玩家：%s，即将加载大牛人脚本...", LocalPlayer.Name),
+        Duration = 7,
+    })
+end)
+
+-- ************************ 后续核心脚本逻辑（原脚本完整保留，仅补充已定义的LocalPlayer） ************************
+local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
+local Camera = Workspace.CurrentCamera
+
+-- 加载 WindUI（兼容不同注入器）
+local success, WindUI = pcall(function()
+    return loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
+end)
+if not success then
+    warn("WindUI加载失败，脚本无法运行：" .. WindUI)
+    return
+end
+
+-- 关闭摄像机震动
+pcall(function()
+    local ok, main = pcall(function()
+        return require(ReplicatedStorage:FindFirstChild("Util") and ReplicatedStorage.Util:FindFirstChild("CameraShaker") and ReplicatedStorage.Util.CameraShaker:FindFirstChild("Main") or nil)
+    end)
+    if ok and type(main) == "table" then
+        local returnnil = function() return nil end
+        main.StartShake = returnnil
+        main.ShakeOnce = returnnil
+        main.ShakeSustain = returnnil
+        main.CameraShakeInstance = returnnil
+        main.Shake = returnnil
+        main.Start = returnnil
+    end
+end)
+
+-- 通知加载
+pcall(function()
+    StarterGui:SetCore("SendNotification",{
+        Title = "大牛人脚本",
+        Text = "加载中...",
+        Duration = 3,
+    })
+end)
+
+-- 全局设置
+local _ENV = (getgenv or getrenv or getfenv)()
+local MIN_CLICK_DELAY = 0.0005
+local Settings = {AutoClick = true, ClickDelay = 0.3} -- 攻速 0.3
+local _G = _G or getfenv(0)._G
+_G.FastAttack = _G.FastAttack ~= nil and _G.FastAttack or true
+-- 初始化ToggleStates并默认开启自动V3
+_G.ToggleStates = _G.ToggleStates or {}
+_G.ToggleStates["自动V3"] = true -- 默认开启自动V3
+_G.AutoBuso = _G.AutoBuso or true -- 默认开启自动武装色霸气
+
+-- 补充缺失的 onCharacterAdded 函数（避免语法错误）
+local function onCharacterAdded(char)
+    -- 空函数占位，不影响原有逻辑
+end
+
+-- Helper
+local function SafeWaitForChild(parent, childName, timeout)
+    timeout = timeout or 10
+    local ok, res = pcall(function() return parent:WaitForChild(childName, timeout) end)
+    if ok then return res end
+    return nil
+end
+
+local function IsAlive(character)
+    if not character then return false end
+    local humanoid = character:FindFirstChildOfClass("Humanoid")
+    return humanoid and humanoid.Health and humanoid.Health > 0
+end
+
+local function GetRandomValidPart(target)
+    if not target then return nil end
+    local allParts = target:GetDescendants()
+    local validParts = {}
+    local humanoidRootPart = target:FindFirstChild("HumanoidRootPart")
+    local boneParts = humanoidRootPart and humanoidRootPart.Parent and humanoidRootPart.Parent:GetDescendants() or {}
+    for _, part in ipairs(allParts) do
+        if part:IsA("BasePart") and part.CanCollide and table.find(boneParts, part) then
+            table.insert(validParts, part)
+        end
+    end
+    return #validParts > 0 and validParts[math.random(1, #validParts)] or target:FindFirstChild("HumanoidRootPart")
+end
+
+-- 检索核心组件
+local function CheckAndGetCoreComponents()
+    local Remotes, Modules, Net, RegisterAttack, RegisterHit, Enemies = nil, nil, nil, nil, nil, nil
+    while true do
+        Remotes = SafeWaitForChild(ReplicatedStorage, "Remotes", 2)
+        Modules = SafeWaitForChild(ReplicatedStorage, "Modules", 2)
+        Net = Modules and SafeWaitForChild(Modules, "Net", 2) or nil
+        RegisterAttack = Net and SafeWaitForChild(Net, "RE/RegisterAttack", 2) or nil
+        RegisterHit = Net and SafeWaitForChild(Net, "RE/RegisterHit", 2) or nil
+        Enemies = SafeWaitForChild(Workspace, "Enemies", 2)
+        if Remotes and Modules and Net and RegisterAttack and RegisterHit and Enemies then
+            return Remotes, Net, RegisterAttack, RegisterHit, Enemies
+        end
+        task.wait(1)
+    end
+end
+
+-- FastAttack 模块（距离 2500）
+local Module = {}
+Module.FastAttack = (function()
+    if _ENV.rz_FastAttack then return _ENV.rz_FastAttack end
+    local FastAttack = {
+        Distance = 2500, -- 距离 2500
+        attackMobs = true,
+        attackPlayers = true,
+        Equipped = nil,
+        IsRunning = _G.FastAttack,
+        consecutiveFailures = 0,
+        maxConsecutiveFailures = 5
+    }
+
+    local function ProcessEnemies(OthersEnemies, Folder)
+        if not Folder or not FastAttack.attackMobs then return nil end
+        local BasePart = nil
+        for _, Enemy in ipairs(Folder:GetChildren()) do
+            if Enemy == LocalPlayer.Character or not IsAlive(Enemy) then continue end
+            local foundPart = GetRandomValidPart(Enemy)
+            if foundPart and (LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and (LocalPlayer.Character.HumanoidRootPart.Position - foundPart.Position).Magnitude < FastAttack.Distance) then
+                table.insert(OthersEnemies, {Enemy, foundPart})
+                BasePart = foundPart
+            end
+        end
+        return BasePart
+    end
+
+    local function ProcessRealPlayers(OthersEnemies)
+        if not FastAttack.attackPlayers then return nil end
+        local BasePart = nil
+        for _, OtherPlayer in ipairs(Players:GetPlayers()) do
+            if OtherPlayer == LocalPlayer then continue end
+            local OtherChar = OtherPlayer.Character
+            if not IsAlive(OtherChar) then continue end
+            local foundPart = GetRandomValidPart(OtherChar)
+            if foundPart and (LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and (LocalPlayer.Character.HumanoidRootPart.Position - foundPart.Position).Magnitude < FastAttack.Distance) then
+                table.insert(OthersEnemies, {OtherChar, foundPart})
+                BasePart = foundPart
+            end
+        end
+        return BasePart
+    end
+
+    function FastAttack:Attack(BasePart, OthersEnemies)
+        local _, Net, temp_RegisterAttack, temp_RegisterHit, _ = CheckAndGetCoreComponents()
+        if not (BasePart and OthersEnemies and #OthersEnemies > 0 and temp_RegisterAttack and temp_RegisterHit) then
+            self.consecutiveFailures = self.consecutiveFailures + 1
+            if self.consecutiveFailures >= self.maxConsecutiveFailures then
+                self.consecutiveFailures = 0
+                self.Equipped = LocalPlayer.Character and IsAlive(LocalPlayer.Character) and LocalPlayer.Character:FindFirstChildOfClass("Tool")
+            end
+            task.delay(0.5, function() self:AttackNearest() end)
+            return
+        end
+        self.consecutiveFailures = 0
+        temp_RegisterAttack:FireServer(Settings.ClickDelay or MIN_CLICK_DELAY)
+        temp_RegisterHit:FireServer(BasePart, OthersEnemies)
+    end
+
+    function FastAttack:AttackNearest()
+        if not self.IsRunning then return end
+        local _, _, _, _, Enemies = CheckAndGetCoreComponents()
+        local OthersEnemies = {}
+        local Part1 = ProcessEnemies(OthersEnemies, Enemies)
+        local Part2 = ProcessRealPlayers(OthersEnemies)
+        if #OthersEnemies > 0 then
+            self:Attack(Part1 or Part2, OthersEnemies)
+        end
+    end
+
+    function FastAttack:BladeHits()
+        if not self.IsRunning then return end
+        local Equipped = LocalPlayer.Character and IsAlive(LocalPlayer.Character) and LocalPlayer.Character:FindFirstChildOfClass("Tool")
+        if Equipped and Equipped.ToolTip ~= "Gun" then
+            self:AttackNearest()
+        end
+    end
+
+    task.spawn(function()
+        while true do
+            task.wait(Settings.ClickDelay)
+            if Settings.AutoClick and FastAttack.IsRunning then
+                FastAttack:BladeHits()
+            else
+                task.wait()
+            end
+        end
+    end)
+
+    _ENV.rz_FastAttack = FastAttack
+    return FastAttack
+end)()
+
+-- 恢复逻辑
+task.spawn(function()
+    while true do
+        task.wait(1)
+        if not _ENV.rz_FastAttack then
+            while not _ENV.rz_FastAttack do
+                task.wait(0.5)
+                if _G.FastAttack then
+                    _ENV.rz_FastAttack = Module.FastAttack or _ENV.rz_FastAttack
+                end
+            end
+        end
+    end
+end)
+
+-- ========== 修复后的自动V4逻辑（删除重复定义，保留一处） ==========
+local autoV4Task = nil
+local autoV4State = false -- 统一管理状态
+local function callAwakeningRemote()
+    local character = LocalPlayer.Character
+    if not character then return end
+    
+    local humanoid = character:FindFirstChildOfClass("Humanoid")
+    if not humanoid or humanoid.Health <= 0 then return end
+    
+    -- 优先从角色身上找Awakening（装备状态），再从背包找
+    local Awakening = character:FindFirstChild("Awakening") or LocalPlayer.Backpack:FindFirstChild("Awakening")
+    if not Awakening then return end
+    
+    local RemoteFunc = Awakening:FindFirstChildOfClass("RemoteFunction")
+    if not RemoteFunc then return end
+    
+    -- 增加重试机制，提升调用成功率
+    local success, result = pcall(function()
+        return RemoteFunc:InvokeServer("AwakenV4", true)
+    end)
+    
+    if not success then
+        warn("V4觉醒调用失败:", result)
+        -- 失败后0.5秒重试一次
+        task.delay(0.5, function()
+            pcall(function()
+                RemoteFunc:InvokeServer("AwakenV4", true)
+            end)
+        end)
+    end
+end
+
+-- 绑定事件：首次加载+每次复活都触发
+local localPlayer = game.Players.LocalPlayer
+if localPlayer.Character then
+    onCharacterAdded(localPlayer.Character)
+end
+localPlayer.CharacterAdded:Connect(onCharacterAdded)
+
+-- 自动武装色霸气核心逻辑
+local isDead = false
+local function activateBusoIfNeeded(char)
+    if not char or not _G.AutoBuso then return end
+    
+    -- 确保角色存活且有人类oid
+    local humanoid = char:FindFirstChildOfClass("Humanoid")
+    if not humanoid or humanoid.Health <= 0 then
+        isDead = true
+        return
+    end
+    
+    -- 检测到角色从死亡变为存活（复活）
+    if isDead then
+        isDead = false
+        -- 复活后短暂延迟，等角色加载完成
+        task.wait(0.5)
+    end
+    
+    -- 激活武装色的核心条件
+    if CollectionService:HasTag(char, "Buso") and not char:FindFirstChild("HasBuso") then
+        local success, err = pcall(function()
+            local commRemote = ReplicatedStorage:FindFirstChild("Remotes"):FindFirstChild("CommF_")
+            if commRemote then
+                commRemote:InvokeServer("Buso")
+            end
+        end)
+        if not success then
+            warn("激活武装色失败:", err)
+        end
+    end
+end
+
+-- 1. 每帧检测（基础逻辑）
+RunService.Heartbeat:Connect(function()
+    local char = LocalPlayer.Character
+    activateBusoIfNeeded(char)
+end)
+
+-- 2. 监听角色加载事件（专门针对复活/角色切换）
+LocalPlayer.CharacterAdded:Connect(function(newChar)
+    isDead = false -- 角色加载完成，标记为存活
+    -- 复活后延迟检测，确保角色完全加载
+    task.wait(1)
+    activateBusoIfNeeded(newChar)
+end)
+
+-- 自动V3默认启动
+local autoV3Task = nil
+local function callRaceV3Remote()
+    local Remotes = ReplicatedStorage:FindFirstChild("Remotes")
+    if not Remotes then return end
+    local CommE = Remotes:FindFirstChild("CommE")
+    if not CommE then return end
+    pcall(function()
+        CommE:FireServer("ActivateAbility")
+    end)
+end
+
+if _G.ToggleStates["自动V3"] then
+    autoV3Task = task.spawn(function()
+        while _G.ToggleStates["自动V3"] do
+            callRaceV3Remote()
+            task.wait(1)
+        end
+        autoV3Task = nil
+    end)
+end
+
+-- 移动加速
+getfenv().translateSpeed = 50
+getfenv().translateAccelEnabled = false
+getfenv().translateConnection = nil
+
+local function enableTranslateAccel(enabled)
+    getfenv().translateAccelEnabled = enabled
+    if enabled then
+        if getfenv().translateConnection then getfenv().translateConnection:Disconnect(); getfenv().translateConnection = nil end
+        getfenv().translateConnection = RunService.Heartbeat:Connect(function()
+            local char = LocalPlayer.Character
+            if char and char:FindFirstChild("Humanoid") and char:FindFirstChild("HumanoidRootPart") then
+                local humanoid = char.Humanoid
+                if humanoid.MoveDirection.Magnitude > 0 then
+                    local moveDirection = humanoid.MoveDirection
+                    local acceleration = moveDirection * (getfenv().translateSpeed or 50) / 30
+                    char:TranslateBy(acceleration)
+                end
+            end
+        end)
+    else
+        if getfenv().translateConnection then getfenv().translateConnection:Disconnect(); getfenv().translateConnection = nil end
+    end
+end
+
+-- ===================== WindUI 界面 =====================
+local Window = WindUI:CreateWindow({
+    Title = "大牛人脚本",
+    Icon = "rbxassetid://129260712070622",
+    IconThemed = true,
+    Author = "大牛人",
+    Folder = "DaNiuRen",
+    Size = UDim2.fromOffset(580, 650),
+    Transparent = true,
+    Theme = "Dark",
+    User = {
+        Enabled = true,
+        Callback = function() print("大牛人脚本已激活") end,
+    },
+    SideBarWidth = 200,
+    ScrollBarEnabled = true,
+})
+
+-- 顶部按钮
+Window:CreateTopbarButton("Refresh", "refresh-ccw", function() 
+    WindUI:Notify({
+        Title = "刷新成功",
+        Content = "脚本功能已重新加载",
+        Duration = 2
+    })
+end, 990)
+
+Window:CreateTopbarButton("Help", "question-circle", function()
+    Window:Dialog({
+        Title = "使用帮助",
+        Content = "按 H 键显示/隐藏界面\n所有功能保持原逻辑不变\n问题请联系作者",
+        Buttons = {
+            {
+                Title = "知道了",
+                Variant = "Primary"
+            }
+        }
+    })
+end, 989)
+
+-- 打开按钮设置
+Window:EditOpenButton({
+    Title = "大牛人脚本",
+    Icon = "bullhorn",
+    CornerRadius = UDim.new(0, 16),
+    StrokeThickness = 2,
+    Color = ColorSequence.new(
+        Color3.fromHex("FF6B6B"),
+        Color3.fromHex("4ECDC4")
+    ),
+    Draggable = true,
+})
+
+-- 创建标签页
+local Tabs = {}
+do
+    Tabs.AttackTab = Window:Tab({ Title = "战斗参数", Icon = "sword" }) -- 攻击设置→战斗参数
+    Tabs.MovementTab = Window:Tab({ Title = "移动设置", Icon = "run" })
+    Tabs.ESPTab = Window:Tab({ Title = "ESP设置", Icon = "eye" })
+    Tabs.TeleportTab = Window:Tab({ Title = "传送功能", Icon = "teleport" })
+    Tabs.ScriptsTab = Window:Tab({ Title = "功能2", Icon = "code" })
+end
+
+-- ===================== 战斗参数标签页 =====================
+Tabs.AttackTab:Paragraph({
+    Title = "战斗参数",
+    Desc = "调整攻击、武装色等战斗相关设置",
+    Image = "sword",
+    ImageSize = 40,
+    Color = "Red"
+})
+
+-- 快速攻击开关
+Tabs.AttackTab:Toggle({
+    Title = "攻击玩家和怪物",
+    Desc = "开启/关闭自动攻击玩家和怪物",
+    Value = _G.FastAttack,
+    Callback = function(state)
+        if _ENV.rz_FastAttack then
+            _ENV.rz_FastAttack.IsRunning = state
+            _G.FastAttack = state
+        else
+            _G.FastAttack = state
+        end
+        WindUI:Notify({ Title = "快速攻击", Content = state and "已开启" or "已关闭", Duration = 1.5 })
+    end
+})
+
+-- 攻击范围
+Tabs.AttackTab:Slider({
+    Title = "攻击范围",
+    Desc = "调整攻击检测距离（1-5000）",
+    Value = {
+        Min = 1,
+        Max = 5000,
+        Default = 2500,
+    },
+    Callback = function(value)
+        local num = math.floor(value)
+        if _ENV.rz_FastAttack then
+            _ENV.rz_FastAttack.Distance = num
+        else
+            if Module.FastAttack then Module.FastAttack.Distance = num end
+        end
+        WindUI:Notify({ Title = "攻击范围", Content = "已设置为: " .. num, Duration = 1.5 })
+    end
+})
+
+-- 攻击速度
+Tabs.AttackTab:Slider({
+    Title = "攻击速度",
+    Desc = "调整攻击间隔（0.0005-2）",
+    Step = 0.01,
+    Value = {
+        Min = MIN_CLICK_DELAY,
+        Max = 2,
+        Default = 0.3,
+    },
+    Callback = function(value)
+        Settings.ClickDelay = value
+        WindUI:Notify({ Title = "攻击速度", Content = "已设置为: " .. string.format("%.2f", value), Duration = 1.5 })
+    end
+})
+
+-- 自动点击开关
+Tabs.AttackTab:Toggle({
+    Title = "自动攻击",
+    Desc = "开启后自动持续攻击",
+    Value = Settings.AutoClick,
+    Callback = function(state)
+        Settings.AutoClick = state
+        WindUI:Notify({ Title = "自动点击", Content = state and "已开启" or "已关闭", Duration = 1.5 })
+    end
+})
+
+-- 自动武装色霸气UI开关（默认开启）
+Tabs.AttackTab:Toggle({
+    Title = "自动武装色霸气",
+    Desc = "自动保持武装色开启（含复活自动重开）",
+    Value = _G.AutoBuso,
+    Callback = function(state)
+        _G.AutoBuso = state
+        WindUI:Notify({
+            Title = "自动武装色霸气",
+            Content = state and "已开启" or "已关闭",
+            Duration = 1.5
+        })
+    end
+})
+
+-- 自动V4开关
+Tabs.AttackTab:Toggle({
+    Title = "自动V4",
+    Value = autoV4State,
+    Callback = function(state)
+        _G.ToggleStates["自动V4"] = state
+        autoV4State = state
+        
+        -- 取消原有任务
+        if autoV4Task then
+            task.cancel(autoV4Task)
+            autoV4Task = nil
+        end
+        
+        if state then
+            -- 新的循环逻辑：0.98秒调用一次，提升触发频率
+            autoV4Task = task.spawn(function()
+                while autoV4State do
+                    callAwakeningRemote()
+                    task.wait(0.98)
+                end
+                autoV4Task = nil
+            end)
+            WindUI:Notify({ Title = "自动V4", Content = "已开启", Duration = 1.5 })
+        else
+            WindUI:Notify({ Title = "自动V4", Content = "已关闭", Duration = 1.5 })
+        end
+    end
+})
+
+-- 自动V3开关（默认开启）
+Tabs.AttackTab:Toggle({
+    Title = "自动V3",
+    Value = _G.ToggleStates["自动V3"],
+    Callback = function(state)
+        _G.ToggleStates["自动V3"] = state
+        if autoV3Task then
+            task.cancel(autoV3Task)
+            autoV3Task = nil
+        end
+        if state then
+            autoV3Task = task.spawn(function()
+                while _G.ToggleStates["自动V3"] do
+                    callRaceV3Remote()
+                    task.wait(1)
+                end
+                autoV3Task = nil
+            end)
+            WindUI:Notify({ Title = "自动V3", Content = "已开启", Duration = 2 })
+        else
+            WindUI:Notify({ Title = "自动V3", Content = "已关闭", Duration = 2 })
+        end
+    end
+})
+
+-- 摄像机距离
+Tabs.AttackTab:Input({
+    Title = "摄像机距离",
+    Value = tostring(LocalPlayer.CameraMaxZoomDistance or 128),
+    Placeholder = "输入数值",
+    Callback = function(input)
+        local v = tonumber(input)
+        if v then
+            LocalPlayer.CameraMaxZoomDistance = v
+            WindUI:Notify({ Title = "摄像机距离", Content = "已设置为: " .. v, Duration = 1.5 })
+        end
+    end
+})
+
+-- ===================== 移动设置标签页 =====================
+Tabs.MovementTab:Paragraph({
+    Title = "移动参数",
+    Image = "run",
+    ImageSize = 40,
+    Color = "Green"
+})
+
+-- 移速数值
+Tabs.MovementTab:Slider({
+    Title = "移速强度",
+    Desc = "调整移速倍率（1-2000）",
+    Value = {
+        Min = 1,
+        Max = 2000,
+        Default = 200,
+    },
+    Callback = function(value)
+        getfenv().translateSpeed = value
+        WindUI:Notify({ Title = "移速", Content = "强度已设置为: " .. value, Duration = 1.5 })
+    end
+})
+
+-- 移速开关
+Tabs.MovementTab:Toggle({
+    Title = "移速开关",
+    Desc = "开启/关闭移速功能",
+    Value = false,
+    Callback = function(state)
+        enableTranslateAccel(state)
+        WindUI:Notify({ Title = "移速", Content = state and "已开启" or "已关闭", Duration = 1.5 })
+    end
+})
+
+-- ===================== ESP Pro 功能实现 =====================
+local espEnabled = false
+local espObjects = {}
+local RandomID = math.random(1, 1000000)
+
+local function Round(num)
+    return math.floor(tonumber(num) + 0.5)
+end
+
+local function getTeamColor(player)
+    if player.Team ~= LocalPlayer.Team then
+        return Color3.fromRGB(255, 0, 0)
+    else
+        return Color3.fromRGB(0, 0, 255)
+    end
+end
+
+local function removeESP(player)
+    if espObjects[player] then
+        for _, v in pairs(espObjects[player]) do
+            if typeof(v) == "Instance" and v.Parent then
+                v:Destroy()
+            end
+        end
+        espObjects[player] = nil
+    end
+end
+
+local function createESP(player)
+    if player == LocalPlayer then return end
+    if not player.Character then return end
+    
+    removeESP(player)
+    
+    local head = player.Character:FindFirstChild("Head")
+    if not head then return end
+
+    local highlight = Instance.new("Highlight")
+    highlight.Adornee = player.Character
+    highlight.FillTransparency = 0.7
+    highlight.OutlineColor = getTeamColor(player)
+    highlight.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+    highlight.Parent = player.Character
+
+    local billboard = Instance.new("BillboardGui")
+    billboard.Name = "NameESP_" .. RandomID
+    billboard.Adornee = head
+    billboard.Size = UDim2.new(0, 200, 0, 50)
+    billboard.AlwaysOnTop = true
+    billboard.StudsOffset = Vector3.new(0, 2.5, 0)
+    billboard.Parent = head
+
+    local avatar = Instance.new("ImageLabel")
+    avatar.Size = UDim2.new(0, 45, 0, 45)
+    avatar.Position = UDim2.new(0, 0, 0, 0)
+    avatar.BackgroundTransparency = 1
+    avatar.BorderSizePixel = 0
+    avatar.Image = "https://www.roblox.com/headshot-thumbnail/image?userId="..player.UserId.."&width=150&height=150&format=png"
+    avatar.Parent = billboard
+
+    local text = Instance.new("TextLabel")
+    text.Size = UDim2.new(1, -50, 1, 0)
+    text.Position = UDim2.new(0, 50, 0, 0)
+    text.BackgroundTransparency = 1
+    text.TextStrokeTransparency = 0.5
+    text.TextScaled = true
+    text.Font = Enum.Font.Code
+    text.TextYAlignment = Enum.TextYAlignment.Top
+    text.TextXAlignment = Enum.TextXAlignment.Left
+    text.TextColor3 = getTeamColor(player)
+    text.Parent = billboard
+
+    espObjects[player] = { highlight = highlight, billboard = billboard, text = text, avatar = avatar }
+
+    task.spawn(function()
+        while espEnabled and player and player.Parent and espObjects[player] do
+            if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+                local root = player.Character.HumanoidRootPart
+                local localRoot = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+                if root and localRoot then
+                    local distance = Round((root.Position - localRoot.Position).Magnitude)
+                    local humanoid = player.Character:FindFirstChildOfClass("Humanoid")
+                    local healthPercent = humanoid and Round((humanoid.Health / humanoid.MaxHealth) * 100) or 0
+                    if espObjects[player] and espObjects[player].text then
+                        espObjects[player].text.Text = string.format("%s | %d M\nHealth: %d%%", player.Name, distance, healthPercent)
+                    end
+                end
+            else
+                break
+            end
+            task.wait(0.2)
+        end
+    end)
+end
+
+local function setupPlayerConnections(player)
+    player.CharacterAdded:Connect(function(character)
+        if espEnabled then
+            task.wait(0.5)
+            createESP(player)
+        end
+    end)
+    player.CharacterRemoving:Connect(function()
+        removeESP(player)
+    end)
+end
+
+local function enableESPPro()
+    espEnabled = true
+    for _, p in pairs(Players:GetPlayers()) do
+        setupPlayerConnections(p)
+        if p.Character then
+            task.wait(0.1)
+            createESP(p)
+        end
+    end
+    WindUI:Notify({ Title = "ESP Pro", Content = "已启用ESP", Duration = 2 })
+end
+
+local function disableESPPro()
+    espEnabled = false
+    for player, _ in pairs(espObjects) do
+        removeESP(player)
+    end
+    espObjects = {}
+    WindUI:Notify({ Title = "ESP Pro", Content = "已禁用ESP", Duration = 2 })
+end
+
+-- ===================== ESP设置标签页 =====================
+-- ESP Pro 开关控件
+Tabs.ESPTab:Toggle({
+    Title = "ESP Pro",
+    Value = false,
+    Callback = function(state)
+        if state then
+            enableESPPro()
+        else
+            disableESPPro()
+        end
+    end
+})
+
+-- 玩家连接处理
+Players.PlayerAdded:Connect(function(player)
+    setupPlayerConnections(player)
+    if espEnabled and player.Character then
+        task.wait(1)
+        createESP(player)
+    end
+end)
+
+Players.PlayerRemoving:Connect(function(player)
+    removeESP(player)
+end)
+
+-- 脚本启动时为现有玩家设置连接
+for _, p in pairs(Players:GetPlayers()) do
+    setupPlayerConnections(p)
+end
+
+-- ===================== 传送功能标签页 =====================
+local teleportButtons = {
+    { "天鹅房间", function() TeleportTo(Vector3.new(-287.37, 305.81, 592.98)) end },
+    { "豪宅", function() TeleportTo(Vector3.new(2286.93, 15.06, 910.51)) end },
+    { "鬼船", function() TeleportTo(Vector3.new(-6496.89795, 89.0350037,-116.509003)) end },
+    { "鬼船外", function() TeleportTo(Vector3.new(920.478027, 154.901001, 32838.9648)) end },
+    { "海上城堡", function() TeleportTo(Vector3.new(-12463.60, 376.26, -7566.08)) end },
+    { "海龟豪宅", function() TeleportTo(Vector3.new(-5060.41, 316.43, -3192.30)) end },
+    { "司法岛", function() TeleportTo(Vector3.new(-5096.48, 316.43, -3177.91)) end },
+    { "九头蛇", function() TeleportTo(Vector3.new(-5027.03, 316.43, -3206.07)) end },
+}
+
+-- 传送函数定义
+local function TeleportTo(position)
+    local char = LocalPlayer.Character
+    if char and char:FindFirstChild("HumanoidRootPart") then
+        char.HumanoidRootPart.CFrame = CFrame.new(position)
+    end
+end
+
+for _, btnData in ipairs(teleportButtons) do
+    Tabs.TeleportTab:Button({
+        Title = btnData[1],
+        Variant = "Primary",
+        Callback = function()
+            btnData[2]()
+            WindUI:Notify({ Title = "传送", Content = "已传送到: " .. btnData[1], Duration = 1.5 })
+        end
+    })
+end
+
+-- ===================== 功能2标签页 =====================
+local externalScripts = {
+    { "Aimbot", "https://raw.githubusercontent.com/98krgqg/aimbot/refs/heads/main/aimbot" },
+    { "FPS优化", "https://raw.githubusercontent.com/98krgqg/fps/refs/heads/main/111" },
+    { "除雾", "https://raw.githubusercontent.com/98krgqg/cwd/refs/heads/main/dfxcw" },
+    { "删除岩浆", "https://raw.githubusercontent.com/98krgqg/LAVAVAVA/refs/heads/main/NO%20LAVA" },
+    { "飞行", "https://raw.githubusercontent.com/98krgqg/fly/refs/heads/main/daniu" },
+    { "法天象地", "https://raw.githubusercontent.com/98krgqg/ftxd/refs/heads/main/ftxd" },
+    { "Bypasstp", "https://raw.githubusercontent.com/98krgqg/tp/refs/heads/main/Bypass" },
+    { "Newattack", "https://raw.githubusercontent.com/98krgqg/ASFASFVA/refs/heads/main/newattack" },
+    { "自动地下城", "https://raw.githubusercontent.com/98krgqg/dxcv/refs/heads/main/dxcff" },
+}
+
+for _, scriptData in ipairs(externalScripts) do
+    Tabs.ScriptsTab:Button({
+        Title = scriptData[1],
+        Variant = "Secondary",
+        Callback = function()
+            pcall(function()
+                loadstring(game:HttpGet(scriptData[2]))()
+                WindUI:Notify({ Title = "脚本加载", Content = scriptData[1] .. " 已加载", Duration = 2 })
+            end)
+        end
+    })
+end
+
+-- ===================== H 键快捷键设置 =====================
+local toggleKey = Enum.KeyCode.H
+UserInputService.InputBegan:Connect(function(input, gameProcessed)
+    if gameProcessed then return end
+    if input.KeyCode == toggleKey then
+        if UserInputService:GetFocusedTextBox() then return end
+        Window:Toggle()
+        WindUI:Notify({
+            Title = "界面控制",
+            Content = Window:IsOpen() and "界面已显示" or "界面已隐藏",
+            Duration = 1.5
+        })
+    end
+end)
+
+-- 启动提示
+pcall(function()
+    StarterGui:SetCore("SendNotification",{
+        Title = "大牛人脚本",
+        Text = "大牛人加载完成",
+        Duration = 5,
+    })
+end)
+
+-- 关闭回调
+Window:OnClose(function()
+    print("大牛人脚本界面已关闭")
+end)
+
+return {
+    Window = Window,
+    FastAttack = _ENV.rz_FastAttack or Module.FastAttack,
+    Settings = Settings,
+    espEnabled = espEnabled
+}
